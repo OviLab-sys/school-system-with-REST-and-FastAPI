@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'courses.apps.CoursesConfig',
 ]
 
 MIDDLEWARE = [
@@ -73,12 +74,40 @@ WSGI_APPLICATION = 'educa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'schoolapi',
+        'USER': 'root',
+        'PASSWORD': '@Engineering4405',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        "OPTIONS": {
+            "read_default_file": "/path/to/my.cnf",
+        },
+        
+    }
+}
+
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'schoolapi',  # Your database name
+        'USER': 'root',       # Your PostgreSQL username
+        'PASSWORD': '@Engineering4405',  # Your PostgreSQL password
+        'HOST': 'localhost',  # Or the IP address if hosted remotely
+        'PORT': '5432',       # Default PostgreSQL port
+    }
+}"""
+
+
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+}"""
 
 
 # Password validation
@@ -121,3 +150,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
